@@ -16,6 +16,10 @@ MIIIMELauncherSweeper is a forensic cleanup utility for the MIIIME Hybrid Launch
 미메런처스위퍼는 미메런처의 비정상 종료 후 호스트에 잔류한 파일시스템 아티팩트를 탐지 · 제거하는 포렌식 정리 도구입니다.
 
 <br>
+<img width="402" height="197" alt="001" src="https://github.com/miiimeworks/MLS/blob/main/Preview/20260417_233754.png?raw=true" style="margin-top: 20px; margin-bottom: 20px;">  
+<img width="402" height="197" alt="001" src="https://github.com/miiimeworks/MLS/blob/main/Preview/20260417_233813.png?raw=true" style="margin-top: 20px; margin-bottom: 20px;">  
+<br>
+
 
 ---
 
@@ -149,7 +153,7 @@ MIIIMELauncherSweeper/
 
 ## 🛡️ Security & Anti-virus Info
 
-### [✅ VirusTotal Analysis Report](https://www.virustotal.com/gui/file/9861a7a3c24b96fcc460faccf6274b858d360982ae9918b9f8317dace82dc7dc?nocache=1)
+### [✅ VirusTotal Analysis Report](https://www.virustotal.com/gui/file/5593ab1baa4180f52b912ee4c6911e1093325124124ff81fad4838822c29c67d?nocache=1)
 
 | Status | Details |
 | :--- | :--- |
@@ -160,7 +164,7 @@ MIIIMELauncherSweeper/
 > This launcher was created with AutoIt. Some antivirus programs may incorrectly detect it as a virus.  
 > 본 런처는 AutoIt으로 제작되었습니다. 일부 백신이 바이러스로 오진 할 수 있습니다. 
 
-**File Checksum (SHA-256) :** `9861a7a3c24b96fcc460faccf6274b858d360982ae9918b9f8317dace82dc7dc`
+**File Checksum (SHA-256) :** `5593ab1baa4180f52b912ee4c6911e1093325124124ff81fad4838822c29c67d`
 
 ---
 
