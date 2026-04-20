@@ -1,4 +1,5 @@
 # MIIIME Launcher Sweeper (MLS™)
+
 MIIIMELauncherSweeper · 미메런처스위퍼<br>
 
 ![OS](https://img.shields.io/badge/Platform-Windows-0078D4?logo=windows&style=flat-square)
@@ -20,13 +21,11 @@ MIIIMELauncherSweeper is a forensic cleanup utility for the MIIIME Hybrid Launch
 <img width="402" height="197" alt="001" src="https://github.com/miiimeworks/MLS/blob/main/Preview/20260417_233813.png?raw=true" style="margin-top: 20px; margin-bottom: 20px;">  
 <br>
 
-
 ---
 
 ## Features
 
 ### Scan
-
 
 The utility first checks if the launcher is running; if active, it skips scanning the temporary folder.  
 (This is because it is impossible to externally distinguish between active sessions and residual traces.)
@@ -37,15 +36,15 @@ The utility first checks if the launcher is running; if active, it skips scannin
 Four types of artifacts are detected.  
 4종의 아티팩트를 탐지.
 
-
-| Type | Description | Scan Root |
-|------|-------------|-----------|
+| Type       | Description                                                   | Scan Root                                                    |
+| ---------- | ------------------------------------------------------------- | ------------------------------------------------------------ |
 | `JUNCTION` | Residual NTFS junction points with a corresponding _bakk pair | `%AppData%`, `%LocalAppData%`, `%LocalLow%`, `%UserProfile%` |
-| `BAKK` | `*_bakk` *_bakk backup folders | Same |
-| `TEMP` | `MIIIME_*` temporary session folders | `%TEMP%` |
-| `REGBAKK` | `*.reg.bakk` registry snapshot files | `%TEMP%\MIIIME_*\RegBakk\` |
+| `BAKK`     | `*_bakk` *_bakk backup folders                                | Same                                                         |
+| `TEMP`     | `MIIIME_*` temporary session folders                          | `%TEMP%`                                                     |
+| `REGBAKK`  | `*.reg.bakk` registry snapshot files                          | `%TEMP%\MIIIME_*\RegBakk\`                                   |
 
 ### Cleanup
+
 Detected artifacts are processed in the following order.  
 탐지된 아티팩트를 다음 순서로 처리.
 
@@ -62,14 +61,15 @@ File and folder deletions include a retry logic (up to 10 times) to handle lock 
 파일·폴더 삭제는 재시도 로직(최대 10회)으로 잠금 충돌에 대응.
 
 ### Operation Modes
+
 Three execution modes are supported.  
 3가지 실행 모드를 지원.
 
-| Mode | Description |
-|------|-------------|
+| Mode          | Description                                                                     |
+| ------------- | ------------------------------------------------------------------------------- |
 | Default (GUI) | Displays detection results in a ListView and cleans up after user confirmation. |
-| `--scan-only` | Read-only scan that displays detection results without performing cleanup. |
-| `--auto` | Automatic cleanup without GUI (for schedulers or script integration). |
+| `--scan-only` | Read-only scan that displays detection results without performing cleanup.      |
+| `--auto`      | Automatic cleanup without GUI (for schedulers or script integration).           |
 
 ---
 
@@ -79,10 +79,10 @@ Three execution modes are supported.
 MIIIMELauncherSweeper.exe [Options]
 ```
 
-| Argument | Description |
-|----------|-------------|
-| `--auto` | **Auto Mode** : Executes cleanup immediately without a confirmation GUI. |
-| `--scan-only` | **Scan Only** : Displays detection results only; no deletion occurs. |
+| Argument      | Description                                                              |
+| ------------- | ------------------------------------------------------------------------ |
+| `--auto`      | **Auto Mode** : Executes cleanup immediately without a confirmation GUI. |
+| `--scan-only` | **Scan Only** : Displays detection results only; no deletion occurs.     |
 
 인수 없이 실행하면 탐지 결과를 표시하고 사용자 확인 후 정리.
 
@@ -92,47 +92,53 @@ MIIIMELauncherSweeper.exe [Options]
 
 ### [Options]
 
-| Key | Type | Default | Description |
-|-----|------|---------|-------------|
-| `LogLevel` | Int | `0` | 0=Off, 1=All(no DEBUG), 2=DEBUG, 3=INFO+, 4=WARN+, 5=ERROR |
-| `Local` | String | `` | `Kr` = Korean. Leave empty for English |
+| Key        | Type   | Default | Description                                                |
+| ---------- | ------ | ------- | ---------------------------------------------------------- |
+| `LogLevel` | Int    | `0`     | 0=Off, 1=All(no DEBUG), 2=DEBUG, 3=INFO+, 4=WARN+, 5=ERROR |
+| `Local`    | String | ``      | `Kr` = Korean. Leave empty for English                     |
 
 ### [Advanced]
 
-| Key | Default | Description |
-|-----|---------|-------------|
-| `LogRotationSize` | `5242880` | Maximum log file size in bytes. Rotates to `.log.old` when exceeded |
-| `LauncherSuffixes` | `_M` | Launcher identifier suffix. Multiple values separated by pipe (`\|`) |
-| `BakkMarker` | `_bakk` | Backup folder identifier marker |
-| `TempPrefix` | `MIIIME_` | Temporary session folder identifier prefix |
-| `LockFiles` | `Cleanup.lock\|SysInject.lock` | Lock file name list |
-| `StateFile` | `State.ini` | Launcher state file name |
+| Key                | Default                        | Description                                                          |
+| ------------------ | ------------------------------ | -------------------------------------------------------------------- |
+| `LogRotationSize`  | `5242880`                      | Maximum log file size in bytes. Rotates to `.log.old` when exceeded  |
+| `LauncherSuffixes` | `_M`                           | Launcher identifier suffix. Multiple values separated by pipe (`\|`) |
+| `BakkMarker`       | `_bakk`                        | Backup folder identifier marker                                      |
+| `TempPrefix`       | `MIIIME_`                      | Temporary session folder identifier prefix                           |
+| `LockFiles`        | `Cleanup.lock\|SysInject.lock` | Lock file name list                                                  |
+| `StateFile`        | `State.ini`                    | Launcher state file name                                             |
 
 ---
 
 ## Scan Logic Details
 
 ### Launcher Running Check
+
 - The utility checks for running launchers in the process list using the LauncherSuffixes + .exe pattern.  
 - If a launcher is running, the entire TEMP scan is skipped.
 
 **[런처 실행 중 처리]**  
+
 - 프로세스 목록에서 `LauncherSuffixes` + `.exe` 패턴으로 런처 실행 여부를 확인.  
 - 런처가 실행 중이면 **TEMP 스캔 전체를 건너뜀.**
 
 ### JUNCTION Detection
+
 - Detected as a JUNCTION type if the original path paired with a _bakk folder is an NTFS junction point (attribute L).  
 - If the original is missing, it is labeled as BAKK; if it is a normal folder, a Conflict status is shown.
 
 **[JUNCTION 탐지]**  
+
 - `_bakk` 폴더와 쌍을 이루는 원본 경로가 NTFS 정션 포인트(`L` 속성)인 경우 `JUNCTION` 유형으로 탐지.  
 - 원본이 없으면 `BAKK`만, 원본이 일반 폴더이면 `Conflict` 정보를 표시.
 
 ### REGBAKK Detection
+
 - RegBakk\*.reg.bakk files within temporary session folders are detected as individual items.  
 - While they are removed during TEMP cleanup, they are re-processed as independent items if initial cleanup fails.
 
 **[REGBAKK 탐지]** 
+
 - 임시 세션 폴더 내의 `RegBakk\*.reg.bakk` 파일을 개별 항목으로 탐지.  
 - TEMP 항목 삭제로 함께 제거되지만, 정리 실패 시 독립 항목으로 재처리.
 
@@ -155,14 +161,14 @@ MIIIMELauncherSweeper/
 
 ### [✅ VirusTotal Analysis Report](https://www.virustotal.com/gui/file/5593ab1baa4180f52b912ee4c6911e1093325124124ff81fad4838822c29c67d?nocache=1)
 
-| Status | Details |
-| :--- | :--- |
-| **Major Vendors** | **Clean** (Passed by AhnLab V3, Kaspersky, Microsoft, Avast, ESET, etc.) |
-| **Detection Rate** | **8 / 72** (Mostly Heuristic/Generic/Trojan-type flags) |
-| **Integrity** | The source code is transparently available for verification in this repository |
+| Status             | Details                                                                        |
+|:------------------ |:------------------------------------------------------------------------------ |
+| **Major Vendors**  | **Clean** (Passed by AhnLab V3, Kaspersky, Microsoft, Avast, ESET, etc.)       |
+| **Detection Rate** | **8 / 72** (Mostly Heuristic/Generic/Trojan-type flags)                        |
+| **Integrity**      | The source code is transparently available for verification in this repository |
 
-> This launcher was created with AutoIt. Some antivirus programs may incorrectly detect it as a virus.  
-> 본 런처는 AutoIt으로 제작되었습니다. 일부 백신이 바이러스로 오진 할 수 있습니다. 
+> This Program was created with AutoIt. Some antivirus programs may incorrectly detect it as a virus.  
+> 본 프로그램은 AutoIt으로 제작되었습니다. 일부 백신이 바이러스로 오진 할 수 있습니다. 
 
 **File Checksum (SHA-256) :** `5593ab1baa4180f52b912ee4c6911e1093325124124ff81fad4838822c29c67d`
 
@@ -170,10 +176,10 @@ MIIIMELauncherSweeper/
 
 ## Disclaimer
 
-Provided **"AS IS"**, without warranty.  
+Provided **“AS IS”**, without warranty.  
 This is a **private project**. No technical support is provided.
 
-본 프로그램은 **"있는 그대로"** 제공되며, 사용 중 발생하는 문제에 대해 제작자는 책임을 지지 않습니다.  
+본 프로그램은 **“있는 그대로”** 제공되며, 사용 중 발생하는 문제에 대해 제작자는 책임을 지지 않습니다.  
 기술 지원은 제공되지 않습니다.
 
 ---
