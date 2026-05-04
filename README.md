@@ -7,7 +7,7 @@ MIIIMELauncherSweeper · 미메런처스위퍼<br>
 ![License](https://img.shields.io/badge/License-Freeware-lightgrey?style=flat-square)
 
 <br>
-<img width="559" height="136" alt="001" src="https://github.com/miiimeworks/M4T/blob/main/4bit_Enhanced/Id/Neon/4b_136_0_G.png?raw=true" style="margin-top: 20px; margin-bottom: 20px;">
+<img width="559" height="136" alt="001" src="https://github.com/miiimeworks/M4T/blob/main/4bit_Enhanced/Id/Neon/4b_136_1_G.png?raw=true" style="margin-top: 20px; margin-bottom: 20px;">
 <br>
 
 MIIIMEHybridLauncher uses NTFS junction points and creates registry backups and temporary session folders on the host.
