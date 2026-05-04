@@ -11,10 +11,10 @@ MIIIMELauncherSweeper · 미메런처스위퍼<br>
 <br>
 
 MIIIMEHybridLauncher uses NTFS junction points and creates registry backups and temporary session folders on the host.
-MIIIMELauncherSweeper is a forensic cleanup utility for the MIIIME Hybrid Launcher.  
+This tool is a forensic cleanup utility for the MIIIME Hybrid Launcher.  
 
 미메런처는 NTFS 정션 포인트를 사용하며, 레지스트리 백업과 임시 세션 폴더를 호스트에 생성합니다.  
-미메런처스위퍼는 미메런처의 비정상 종료 후 호스트에 잔류한 파일시스템 아티팩트를 탐지 · 제거하는 포렌식 정리 도구입니다.
+이 도구는 미메런처의 비정상 종료 후 호스트에 잔류한 파일시스템 아티팩트를 탐지 · 제거합니다.
 
 <br>
 <img width="402" height="197" alt="001" src="https://github.com/miiimeworks/MLS/blob/main/Preview/20260417_233754.png?raw=true" style="margin-top: 20px; margin-bottom: 20px;">  
