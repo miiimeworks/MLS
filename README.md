@@ -17,7 +17,6 @@ This tool is a forensic cleanup utility for the MIIIME Hybrid Launcher.
 이 도구는 미메런처의 비정상 종료 후 호스트에 잔류한 파일시스템 아티팩트를 탐지 · 제거합니다.
 
 <br>
-<img width="402" height="197" alt="001" src="https://github.com/miiimeworks/MLS/blob/main/Preview/20260417_233754.png?raw=true" style="margin-top: 20px; margin-bottom: 20px;">  
 <img width="402" height="197" alt="001" src="https://github.com/miiimeworks/MLS/blob/main/Preview/20260417_233813.png?raw=true" style="margin-top: 20px; margin-bottom: 20px;">  
 <br>
 
