@@ -1,6 +1,6 @@
 # MIIIME Launcher Sweeper (MLS™)
 
-MIIIMELauncherSweeper · 미메런처스위퍼<br>
+MIIIMESweeper · 미메스위퍼<br>
 
 ![OS](https://img.shields.io/badge/Platform-Windows-0078D4?logo=windows&style=flat-square)
 [![Language](https://img.shields.io/badge/Language-AutoIt-orange?logo=autoit&style=flat-square)](https://www.autoitscript.com/site/)
