@@ -18,6 +18,7 @@ This tool is a forensic cleanup utility for the MIIIME Hybrid Launcher.
 
 <br>
 <img width="402" height="197" alt="001" src="https://github.com/miiimeworks/MLS/blob/main/Preview/20260417_233813.png?raw=true" style="margin-top: 20px; margin-bottom: 20px;">  
+<br>
 <img width="482" height="607" alt="20260514_213430" src="https://github.com/miiimeworks/MLS/blob/main/Preview/20260514_213430.png?raw=true" />
 <br>
 
@@ -165,7 +166,7 @@ MIIIMELauncherSweeper/
 |:------------------ |:------------------------------------------------------------------------------ |
 | **Major Vendors**  | **Clean** (Passed by AhnLab V3, Kaspersky, Microsoft, Avast, ESET, etc.)       |
 | **Detection Rate** | **8 / 72** (Mostly Heuristic/Generic/Trojan-type flags)                        |
-| **Integrity**      | The source code is transparently available for verification in this repository |
+| **Integrity**      | The source is private, and the distribution files can be verified using hashes and VirusTotal results. |
 
 > This Program was created with AutoIt. Some antivirus programs may incorrectly detect it as a virus.  
 > 본 프로그램은 AutoIt으로 제작되었습니다. 일부 백신이 바이러스로 오진 할 수 있습니다. 
